@@ -32,7 +32,7 @@ git clone https://github.com/cathieG/CodeT5.git
 ```shell
 cd CodeT5
 ```
-(3) Set up a virtual environment and activate it: (change according to your directory structure)
+(3) Set up a virtual environment and activate it:
 
 For macOS/Linux:
 ```shell
