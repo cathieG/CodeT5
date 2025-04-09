@@ -9,6 +9,7 @@ Overview:
 * [3 Run Files](#3-run-files)
   * [3.1 Preprocessing.py](#31-preprocessing.py)
   * [3.2 Model.py](32-model.py)
+  * [3.3 Evaluation.py](33-evaluation.py)
 * [4 Report](#4-report)  
 
 ---
@@ -64,12 +65,15 @@ git clone https://github.com/microsoft/CodeXGLUE.git
 
 # **3. Run Files**
 
-You have the options to run the project from different parts. The main steps of the project can be broken down into:
-1. Preprocessing
-2. Model Building
-3. Model Evaluating
+You have the option to run the project from different stages. The main steps of the project are as follows:
 
-In the repository, we have provided you with all intermediate results so that you can start running from any of the steps without interruption. 
+3.1 Preprocessing
+
+3.2 Model Training
+
+3.3 Evaluation
+
+This repository includes all intermediate results, allowing you to start from any stage of the project without interruption.
 
 Now, jump to the section that you wish to start from!
 
@@ -78,7 +82,16 @@ To run the file:
 ```shell
 python preprocessing.py
 ```
+## **3.2 Model.py**
 
+**Note:** If you previously ran `preprocessing.py` and generated your own flattened files, please follow the instructions in this file to update the file paths accordingly so you can proceed with training using your data. 
+
+Otherwise, you can run this script directly using the following command:
+```shell
+python model.py
+```
+
+## **3.3 Evaluation.py**
 
 
 
