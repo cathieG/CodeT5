@@ -53,7 +53,12 @@ Install the required dependencies:
 ```shell
 pip install -r requirements.txt
 ```
+## **2.3 Clone CodeXGLUE Repository**
 
+The CodeXGLUE dataset is required for this project. Clone the repository containing the dataset:
+```shell
+git clone https://github.com/microsoft/CodeXGLUE.git
+```
 
 
 
