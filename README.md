@@ -65,7 +65,7 @@ git clone https://github.com/microsoft/CodeXGLUE.git
 
 # **3. Run Files**
 
-You have the option to run the project from different stages. The main steps of the project are as follows:
+The main steps of the project are as follows:
 
 3.1 Preprocessing
 
@@ -73,9 +73,7 @@ You have the option to run the project from different stages. The main steps of 
 
 3.3 Evaluation
 
-This repository includes all intermediate results, allowing you to start from any stage of the project without interruption.
-
-Now, jump to the section that you wish to start from!
+You have the option to run the project from the preprocessing or model training stage.
 
 ## **3.1 Preprocessing.py**
 To run the file: 
