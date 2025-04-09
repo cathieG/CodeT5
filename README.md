@@ -24,31 +24,34 @@ This project is implemented in **Python 3.9+** and is compatible with **macOS, L
 
 (1) Clone the repository to your workspace:  
 ```shell
-~ $ git clone https://github.com/cathieG/CodeT5.git
+git clone https://github.com/cathieG/CodeT5.git
 ```
 (2) Navigate into the repository: (change according to your directory structure)
 ```shell
-~ $ cd your-project
-~/your-project $
+cd CodeT5
 ```
 (3) Set up a virtual environment and activate it: (change according to your directory structure)
 
 For macOS/Linux:
 ```shell
-~/your-project $ python -m venv ./venv/
-~/your-project $ source venv/bin/activate
-(venv) ~/your-project $ 
+python -m venv ./venv/
+source venv/bin/activate
+```
+For Windows:
+```shell
+python -m venv venv
+venv\Scripts\activate
 ```
 
 To deactivate the virtual environment, use the command:
 ```shell
-(venv) $ deactivate
+deactivate
 ```
 ## **2.2 Install All Dependencies**
 
 Install the required dependencies:
 ```shell
-(venv) ~/your-project $ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 
