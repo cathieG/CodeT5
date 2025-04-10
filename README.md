@@ -117,7 +117,7 @@ CSCI_420_Assignment2_Report.pdf: Contains the write-up for this assignment.
 In "data/" folder, "data/raw/" contains the training, testing, and validation data that the professor provided us.
 "data/processed/" contains the flattened validation and test data that we preprocessed. Due to the flattened training data being too large, we couldn't include it in the repository.
 
-
+Additionally, we couldn't include the checkpoint (fine-tuned model) also because it was too large.
 
 
 
