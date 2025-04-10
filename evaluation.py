@@ -3,6 +3,8 @@ import pandas as pd
 import torch
 from transformers import AutoTokenizer
 import evaluate
+import tempfile
+import subprocess
 
 # Load Model & Tokenizer
 def load_model_and_tokenizer(model_checkpoint="Salesforce/codet5-small"):
@@ -22,7 +24,7 @@ def preprocess_function(examples, tokenizer):
     return model_inputs
 
 # Test function for evaluating the model's performance
-def test_code(csv_file, model, tokenizer, output_path="testset-results.csv"):
+def test_code(csv_file, model, tokenizer, output_path="data/testset-results.csv"):
     sacrebleu = evaluate.load("sacrebleu")
     predictions = []
     references = []
@@ -55,16 +57,17 @@ def test_code(csv_file, model, tokenizer, output_path="testset-results.csv"):
         correct.append(equal_match)
 
         # Temporary files for CodeBLEU calculation
-        with open(f'/content/temp_ref.txt', 'w') as f_ref, open(f'/content/temp_pred.txt', 'w') as f_pred:
-            f_ref.write(target + '\n')
-            f_pred.write(prediction + '\n')
+        with tempfile.NamedTemporaryFile(delete=False) as f_ref, tempfile.NamedTemporaryFile(delete=False) as f_pred:
+            f_ref.write(target.encode())
+            f_pred.write(prediction.encode())
+            temp_ref_file = f_ref.name
+            temp_pred_file = f_pred.name
 
         # Call the calc_code_bleu script for CodeBLEU score
-        result = os.popen(
-            'cd /content/CodeXGLUE/Code-Code/code-to-code-trans/evaluator/CodeBLEU/ && '
-            'python calc_code_bleu.py --refs /content/temp_ref.txt '
-            '--hyp /content/temp_pred.txt --lang java --params 0.25,0.25,0.25,0.25'
-        ).read()
+        result = subprocess.run(
+            ['python', 'CodeXGLUE/Code-Code/code-to-code-trans/evaluator/CodeBLEU/calc_code_bleu.py', '--refs', temp_ref_file, '--hyp', temp_pred_file],
+            capture_output=True, text=True
+        )
 
         # Extract CodeBLEU score
         for line in result.split('\n'):
@@ -99,12 +102,13 @@ def test_code(csv_file, model, tokenizer, output_path="testset-results.csv"):
         "BLEU-4 Score": Bleu_4,
     })
 
+    
     # Save results to CSV
     results_df.to_csv(output_path, index=False)
     print(f"Evaluation results saved to {output_path}")
 
 
-def main(csv_file_path, model_checkpoint="Salesforce/codet5-small", output_path="testset-results.csv"):
+def main(csv_file_path, model_checkpoint="Salesforce/codet5-small", output_path="data/testset-results.csv"):
     
     csv_file = pd.read_csv(csv_file_path)
 
