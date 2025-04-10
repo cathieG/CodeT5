@@ -82,7 +82,7 @@ def setup_training_args(output_dir):
         push_to_hub=False,
     )
 
-# Train and Evaluate
+# Train and Evaluate using the Trainer API
 def train_and_evaluate(model, tokenizer, datasets, training_args):
     trainer = Trainer(
         model=model,
@@ -94,7 +94,12 @@ def train_and_evaluate(model, tokenizer, datasets, training_args):
     )
     trainer.train()
     metrics = trainer.evaluate(datasets["test"])
-    print("Test Evaluation Metrics:", metrics)
+    print("Test Loss Metrics:", metrics)
+
+
+def zip_model(output_dir):
+    shutil.make_archive(output_dir, 'zip', output_dir)
+    print(f"Model saved and zipped to {output_dir}.zip")
 
 
 def main():
@@ -120,6 +125,11 @@ def main():
     training_args = setup_training_args("output_model")
     model.to(torch.device("cuda" if torch.cuda.is_available() else "cpu"))
     train_and_evaluate(model, tokenizer, datasets, training_args)
+    print("Task finished.")
+
+    print("Start zipping model")
+    zip_model("output_model")
+
 
 if __name__ == "__main__":
     main()
