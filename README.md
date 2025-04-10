@@ -78,7 +78,6 @@ The main steps of the project are as follows:
 
 3.3 Evaluation
 
-You have the option to run the project from the preprocessing or model training stage.
 
 ## **3.1 Preprocessing.py**
 To run the file: 
