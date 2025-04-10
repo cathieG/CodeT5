@@ -90,9 +90,20 @@ python model.py
 ```
 
 ## **3.3 Evaluation.py**
+After running Model.py, the model is saved in a zipped folder. Therefore, run the following command to unzip it first:
 
-
-
+On macOS/Linux:
+```shell
+unzip output_model.zip -d output-model
+```
+On windows:
+```shell
+Expand-Archive -Path "output_model.zip" -DestinationPath "output_model"
+```
+Then run the file:
+```shell
+python evaluation.py
+```
 
 
 
