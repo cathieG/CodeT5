@@ -10,12 +10,18 @@ Overview:
   * [3.1 Preprocessing.py](#31-preprocessing.py)
   * [3.2 Model.py](32-model.py)
   * [3.3 Evaluation.py](33-evaluation.py)
-* [4 Report](#4-report)  
-
+* [4 Other Documentations](#4-other-documentations)
+  * [testset-results.csv](#testset_results.csv)
 ---
 
 # **1. Introduction**  
-Will add some introductions later
+This project fine-tunes CodeT5, a pre-trained transformer model, to predict if statements in source code. 
+
+We used the CodeXGLUE dataset, focusing on extracting and preprocessing code data relevant to conditional statements. After tokenizing the data with RobertaTokenizer, we fine-tuned CodeT5 using the T5ForConditionalGeneration model. The training process was managed using the Hugging Face Trainer API.
+
+The trained model was evaluated on a test set using BLEU and CodeBLEU metrics to measure its prediction accuracy. Finally, the model was saved and zipped for easy distribution.
+
+This project improves CodeT5's ability to handle conditional code structures, advancing automated code generation and analysis tools.
 
 ---
 
@@ -105,6 +111,11 @@ Then run the file:
 python evaluation.py
 ```
 
+# **4. Other Documentations**
+
+testset-results.csv: Contains the desired output acquired by running the scripts.
+
+CSCI_420_Assignment2_Report.pdf: Contains the write-up for this assignment.
 
 
 
