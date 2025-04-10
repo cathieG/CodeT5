@@ -11,7 +11,6 @@ Overview:
   * [3.2 Model.py](32-model.py)
   * [3.3 Evaluation.py](33-evaluation.py)
 * [4 Other Documentations](#4-other-documentations)
-  * [testset-results.csv](#testset_results.csv)
 ---
 
 # **1. Introduction**  
@@ -114,6 +113,9 @@ python evaluation.py
 testset-results.csv: Contains the desired output acquired by running the scripts.
 
 CSCI_420_Assignment2_Report.pdf: Contains the write-up for this assignment.
+
+In "data/" folder, "data/raw/" contains the training, testing, and validation data that the professor provided us.
+"data/processed/" contains the flattened validation and test data that we preprocessed. Due to the flattened training data being too large, we couldn't include it in the repository.
 
 
 
