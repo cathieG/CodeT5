@@ -88,9 +88,7 @@ python preprocessing.py
 ```
 ## **3.2 Model.py**
 
-**Note:** If you previously ran `preprocessing.py` and generated your own flattened files, please follow the instructions in this file to update the file paths accordingly so you can proceed with training using your data. 
-
-Otherwise, you can run this script directly using the following command:
+Run this script using the following command:
 ```shell
 python model.py
 ```
